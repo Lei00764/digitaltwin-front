@@ -4,6 +4,7 @@
 
 <script>
 import { getConsumption } from "@/api/consumption";
+import * as echarts from 'echarts';
 export default {
   mounted() {
     this.draw();
@@ -11,11 +12,11 @@ export default {
   },
   methods: {
     draw() {
-      var myChart = this.$echarts.init(document.getElementById("m4"));
+      let myChart = echarts.init(document.getElementById("m4"));
       window.addEventListener('resize', function () {
         myChart.resize();
       });
-      var option = {
+      let option = {
         tooltip: {
           trigger: "axis",
           axisPointer: { type: "shadow" },
@@ -32,9 +33,7 @@ export default {
           data: ["优化前", "优化后"],
           right: "center",
           top: 0,
-          textStyle: {
             color: "#000000",
-          },
           itemWidth: 12,
           itemHeight: 10,
           // itemGap: 35
@@ -46,10 +45,8 @@ export default {
             axisLabel: {
               formatter: "{value} h", // 添加横坐标单位
               rotate: 0,
-              textStyle: {
                 color: "rgba(0,0,0,.6)",
                 fontSize: 14,
-              },
             },
             axisLine: {
               lineStyle: {
@@ -98,10 +95,8 @@ export default {
             },
             axisLabel: {
               formatter: "{value} KW·h",
-              textStyle: {
                 color: "rgba(0,0,0,.6)",
                 fontSize: 14,
-              },
             },
 
             splitLine: {
@@ -120,14 +115,12 @@ export default {
             symbolSize: 5,
             showSymbol: false,
             lineStyle: {
-              normal: {
                 color: "rgba(66, 115, 243, 1)",
                 width: 2,
-              },
             },
             areaStyle: {
               normal: {
-                color: new this.$echarts.graphic.LinearGradient(
+                color: new echarts.graphic.LinearGradient(
                   0,
                   0,
                   0,
@@ -184,7 +177,7 @@ export default {
             },
             areaStyle: {
               normal: {
-                color: new this.$echarts.graphic.LinearGradient(
+                color: new echarts.graphic.LinearGradient(
                   0,
                   0,
                   0,
@@ -238,9 +231,9 @@ export default {
     getDataM4() {
       getConsumption()
         .then((data) => {
-          var chart = this.$echarts.getInstanceByDom(document.getElementById("m4"));
-          var option = chart.getOption();
-          var listData = option.series[0].data;
+          let chart = echarts.getInstanceByDom(document.getElementById("m4"));
+          let option = chart.getOption();
+          let listData = option.series[0].data;
           console.log(listData); // 处理获取到的数据
           for (let i = 0; i < data.length; i++) {
             // console.log(data[i].before);

@@ -2,10 +2,10 @@
   <div style="display: flex; flex-direction: row" class="content">
     <div id="m1" style="width: 150px; height: 150px"></div>
     <div style="margin-left:30px">
-      <p style="margin-bottom: -2px;margin-top:-10px">今日已用气量</p>
+      <p style="margin: 2px">今日已用气量</p>
       <el-button type="danger">{{water}} m2</el-button>
-      <el-divider style="margin-top:-20px"></el-divider>
-      <p style="margin-bottom: -2px;margin-top:-20px">今日已累计用电</p>
+      <el-divider style="margin: 6px 0"></el-divider>
+      <p style="margin: 2px">今日已累计用电</p>
       <el-button type="primary">{{elec}} kW.h</el-button>
     </div>
   </div>
@@ -13,6 +13,7 @@
 
 <script>
 import { getWaterAndElectricity } from "@/api/c++_right";
+import * as echarts from 'echarts';
 export default {
   mounted() {
     this.draw();
@@ -26,9 +27,9 @@ export default {
   },
   methods: {
     draw() {
-      var myChart = this.$echarts.init(document.getElementById("m1"));
-      var txt = 0.1009;
-      var option = {
+      let myChart = echarts.init(document.getElementById("m1"));
+      let txt = 0.1009;
+      let option = {
         title: {
           text: "气电比\n" + txt + "%\n" + "kw.h/m2",
           x: "center",
@@ -45,7 +46,7 @@ export default {
           {
             name: "Line 1",
             type: "pie",
-            clockWise: true,
+            clockwise : true,
             radius: ["65%", "80%"],
             itemStyle: {
               normal: {
@@ -90,7 +91,7 @@ export default {
       });
     },
     getWaterAndElectricity() {
-      var that=this
+      let that=this
       getWaterAndElectricity()
         .then((data) => {
           console.log(data); // 处理获取到的数据

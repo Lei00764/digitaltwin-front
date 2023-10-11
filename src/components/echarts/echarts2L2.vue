@@ -11,6 +11,7 @@
 
 <script>
 import { getConsumption, getnewConsumption } from "@/api/consumption";
+import * as echarts from 'echarts';
 export default {
   data() {
     return {
@@ -24,11 +25,11 @@ export default {
   },
   methods: {
     draw() {
-      var myChart = this.$echarts.init(document.getElementById("2l2"));
+      let myChart = echarts.init(document.getElementById("2l2"));
       window.addEventListener('resize', function () {
         myChart.resize();
       });
-      var option = {
+      let option = {
         tooltip: {
           trigger: "axis",
           axisPointer: { type: "shadow" },
@@ -125,7 +126,7 @@ export default {
             },
             areaStyle: {
               normal: {
-                color: new this.$echarts.graphic.LinearGradient(
+                color: new echarts.graphic.LinearGradient(
                   0,
                   0,
                   0,
@@ -194,7 +195,7 @@ export default {
             },
             areaStyle: {
               normal: {
-                color: new this.$echarts.graphic.LinearGradient(
+                color: new echarts.graphic.LinearGradient(
                   0,
                   0,
                   0,
@@ -259,9 +260,9 @@ export default {
     getData2L2() {
       getConsumption()
         .then((data) => {
-          var chart = this.$echarts.getInstanceByDom(document.getElementById("2l2"));
-          var option = chart.getOption();
-          var listData = option.series[0].data;
+          let chart = echarts.getInstanceByDom(document.getElementById("2l2"));
+          let option = chart.getOption();
+          let listData = option.series[0].data;
           console.log(listData); // 处理获取到的数据
           for (let i = 0; i < data.length; i++) {
             // console.log(data[i].before);
@@ -282,8 +283,8 @@ export default {
       //这里从数据取新的值
       getnewConsumption()
         .then((data) => {
-          var chart = this.$echarts.getInstanceByDom(document.getElementById("2l2"));
-          var option = chart.getOption();
+          let chart = echarts.getInstanceByDom(document.getElementById("2l2"));
+          let option = chart.getOption();
           console.log(data);
           for (let i = 0; i < data.length; i++) {
             // console.log(data[i].before);

@@ -18,40 +18,40 @@
 
         <div style="margin-top:100px">
             <el-table :data="tableData" border :row-style="{ height: '40px' }" style="width: 100%; height: 700px;">
-                <el-table-column prop="id" label="" width="40">
+                <el-table-column prop="id" label="" width="60">
                 </el-table-column>
                 <el-table-column prop="date" label="日期" width="180">
-                    <template scope="scope">
+                    <template #default="scope">
                         <span style="color:red">{{ scope.row.date }}</span>
                     </template>
                 </el-table-column>
                 <el-table-column prop="time" label="时间" width="180">
-                    <template scope="scope">
+                    <template #default="scope">
                         <span style="color:red">{{ scope.row.time }}</span>
                     </template>
                 </el-table-column>
-                <el-table-column prop="msg" label="报警信息" width="450">
-                    <template scope="scope">
+                <el-table-column prop="msg" label="报警信息">
+                    <template #default="scope">
                         <span style="color:red">{{ scope.row.msg }}</span>
                     </template>
                 </el-table-column>
                 <el-table-column prop="equip" label="故障设备" width="180">
-                    <template scope="scope">
+                    <template #default="scope">
                         <span style="color:red">{{ scope.row.equip }}</span>
                     </template>
                 </el-table-column>
                 <el-table-column prop="where" label="报警发生地" width="180">
-                    <template scope="scope">
+                    <template #default="scope">
                         <span style="color:red">{{ scope.row.where }}</span>
                     </template>
                 </el-table-column>
                 <el-table-column prop="limit" label="报警阈值" width="180">
-                    <template scope="scope">
+                    <template #default="scope">
                         <span style="color:red">{{ scope.row.limit }}</span>
                     </template>
                 </el-table-column>
                 <el-table-column prop="ltime" label="持续时间" width="180">
-                    <template scope="scope">
+                    <template #default="scope">
                         <span style="color:red">{{ scope.row.ltime }}</span>
                     </template>
                 </el-table-column>

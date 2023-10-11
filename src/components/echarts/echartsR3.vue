@@ -4,6 +4,7 @@
 
 <script>
 import { getData } from "@/api/airelectricity";
+import * as echarts from 'echarts';
 export default {
   mounted() {
     this.draw();
@@ -12,12 +13,12 @@ export default {
   methods: {
     draw() {
       // 基于准备好的dom，初始化echarts实例
-      var myChart = this.$echarts.init(document.getElementById("r3"));
+      let myChart = echarts.init(document.getElementById("r3"));
       window.addEventListener('resize', function () {
         myChart.resize();
       });
       // 指定图表的配置项和数据
-      var option = {
+      let option = {
         tooltip: {
           trigger: "item",
           formatter: "{a} <br/>{b}: {c} ({d}%)",
@@ -117,12 +118,12 @@ export default {
     getDataR3() {
       getData()
         .then((data) => {
-          var chart = this.$echarts.getInstanceByDom(document.getElementById("r3"));
-          var option = chart.getOption();
-          var tempdata = data[0];
+          let chart = echarts.getInstanceByDom(document.getElementById("r3"));
+          let option = chart.getOption();
+          let tempdata = data[0];
           option.series[0].data[0].value = parseFloat(tempdata.total).toFixed(2);
           for (let i = 0; i < 3; i++) {
-            var d = i + 1;
+            let d = i + 1;
             option.series[1].data[i].value = tempdata["air" + d];
           }
           chart.setOption(option);

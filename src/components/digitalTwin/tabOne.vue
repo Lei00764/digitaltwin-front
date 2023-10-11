@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     getStress() {
-      var that=this
+      let that=this
       getStress()
         .then((data) => {
           console.log(data); // 处理获取到的数据

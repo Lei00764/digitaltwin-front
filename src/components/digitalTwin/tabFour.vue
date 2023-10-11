@@ -3,27 +3,31 @@
     <div>
       <span>系统操作</span>
       <br />
-      <i class="el-icon-edit"></i>
+      <Edit class="icon"/>
       <span class="space">用气计划</span>
       <el-tag class="tag">已完成</el-tag>
       <br />
-      <i class="el-icon-share"></i>
+        <Share class="icon"/>
       <span class="space">设备参数</span>
       <el-tag class="tag" type="warning">在修订</el-tag>
       <br />
-      <i class="el-icon-help"></i>
+        <Help class="icon"/>
       <span class="space">水管阀门</span>
       <el-tag class="tag">已完成</el-tag>
       <br />
-      <i class="el-icon-s-order"></i>
-      <span class="space">数据抄袭</span>
+      <List class="icon"/>
+      <span class="space">数据抄写</span>
       <el-tag class="tag" type="danger">待修订</el-tag>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import {Edit, Help, List, Share} from "@element-plus/icons-vue";
+
+export default {
+    components: {List, Help, Share, Edit}
+};
 </script>
 
 <style scoped>
@@ -37,5 +41,9 @@ export default {};
 }
 .tag{
     margin-left:30px
+}
+svg.icon{
+    height: 1.125em;
+    vertical-align: sub;
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="card">
     <div class="title">
       <span>
-        <i class="el-icon-s-release"></i>
+        <Failed />
       </span>
       <p class="title-text">总管压力</p>
       <p class="percent">
@@ -31,10 +31,12 @@
 
 <script>
 import { getPercent,getNumber } from "@/api/c++_left";
+import {Failed} from "@element-plus/icons-vue";
 export default {
+    components: {Failed},
   methods: {
     getPercent() {
-      var that=this
+      let that=this
       getPercent()
         .then((data) => {
           console.log(data); // 处理获取到的数据
@@ -45,7 +47,7 @@ export default {
         });
     },
     getNumber() {
-      var that=this
+      let that=this
       getNumber()
         .then((data) => {
           console.log(data); // 处理获取到的数据

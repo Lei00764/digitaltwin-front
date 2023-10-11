@@ -4,6 +4,7 @@
 
 <script>
 import { getData } from "@/api/recentconsumption";
+import * as echarts from 'echarts';
 export default {
   mounted() {
     this.draw();
@@ -13,12 +14,12 @@ export default {
   methods: {
     draw() {
       // 基于准备好的dom，初始化echarts实例
-      var myChart = this.$echarts.init(document.getElementById("l3"));
+      let myChart = echarts.init(document.getElementById("l3"));
       window.addEventListener('resize', function () {
         myChart.resize();
       });
       // 指定图表的配置项和数据
-      var option = {
+      let option = {
         tooltip: {
           trigger: "axis",
         },
@@ -49,9 +50,7 @@ export default {
             type: "bar",
             data: [23.0, 21.9, 21.0, 23.2, 25.6, 25.7],
             itemStyle: {
-              normal: {
                 color: "#1157fc", //改变折线点的颜色
-              },
             },
           },
           {
@@ -59,9 +58,7 @@ export default {
             type: "bar",
             data: [23.6, 21.9, 20.0, 20.3, 21.4, 20.3],
             itemStyle: {
-              normal: {
                 color: "#648cf5", //改变折线点的颜色
-              },
             },
           },
           {
@@ -69,9 +66,7 @@ export default {
             type: "bar",
             data: [20.6, 22.9, 21.0, 22.3, 23.4, 21.3],
             itemStyle: {
-              normal: {
                 color: "#8ba4e6", //改变折线点的颜色
-              },
             },
           },
         ],
@@ -82,9 +77,9 @@ export default {
     getDataL3() {
       getData()
         .then((data) => {
-          var chart = this.$echarts.getInstanceByDom(document.getElementById("l3"));
-          var option = chart.getOption();
-          var listData = option.series[0].data;
+          let chart = echarts.getInstanceByDom(document.getElementById("l3"));
+          let option = chart.getOption();
+          let listData = option.series[0].data;
           console.log(listData); // 处理获取到的数据
           console.log(data); // 处理获取到的数据
           for (let i = 0; i < data.length; i++) {
@@ -99,16 +94,16 @@ export default {
         })
     },
     setDate() {
-      var chart = this.$echarts.getInstanceByDom(document.getElementById("l3"));
-      var option = chart.getOption();
-      // var listDate = option.xAxis[0].data;
-      var listDate = [];
-      var date = new Date();
-      var month = date.getMonth() + 1;
+      let chart = echarts.getInstanceByDom(document.getElementById("l3"));
+      let option = chart.getOption();
+      // let listDate = option.xAxis[0].data;
+      let listDate = [];
+      let date = new Date();
+      let month = date.getMonth() + 1;
       for (let i = 4; i >= 0; i--) {
-        var day = date.getDate();
+        let day = date.getDate();
         day = day - i;
-        var time = month + "." + day;
+        let time = month + "." + day;
         listDate.push(time);
       }
       option.xAxis[0].data = listDate;

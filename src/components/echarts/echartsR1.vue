@@ -4,6 +4,7 @@
 
 <script>
 import { getData } from "@/api/systemelectricity";
+import * as echarts from 'echarts';
 export default {
   mounted() {
     this.draw();
@@ -13,12 +14,12 @@ export default {
   methods: {
     draw() {
       // 基于准备好的dom，初始化echarts实例
-      var myChart = this.$echarts.init(document.getElementById("r1"));
+      let myChart = echarts.init(document.getElementById("r1"));
       window.addEventListener('resize', function () {
         myChart.resize();
       });
       // 指定图表的配置项和数据
-      var option = {
+      let option = {
         tooltip: {
           trigger: "axis",
           axisPointer: {
@@ -81,7 +82,7 @@ export default {
             barWidth: 20,//柱图宽度
             data: [1000, 1500, 2000, 2500, 3000],
             itemStyle: {
-              color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                 {
                   offset: 0,
                   color: "#134FFE",
@@ -91,7 +92,7 @@ export default {
                   color: "rgba(22,75,247,0.1)",
                 },
               ]),
-              barBorderRadius: [5, 5, 5, 5],//柱形图圆角设置
+              borderRadius: [5, 5, 5, 5],//柱形图圆角设置
 
             },
           },
@@ -114,9 +115,9 @@ export default {
     getDataR1() {
       getData()
         .then((data) => {
-          var chart = this.$echarts.getInstanceByDom(document.getElementById("r1"));
-          var option = chart.getOption();
-          var listData = option.series[0].data;
+          let chart = echarts.getInstanceByDom(document.getElementById("r1"));
+          let option = chart.getOption();
+          let listData = option.series[0].data;
           console.log(listData); // 处理获取到的数据
           for (let i = 0; i < data.length; i++) {
             option.series[0].data[i] = data[i].fee
@@ -129,16 +130,16 @@ export default {
         });
     },
     setDate() {
-      var chart = this.$echarts.getInstanceByDom(document.getElementById("r1"));
-      var option = chart.getOption();
-      // var listDate = option.xAxis[0].data;
-      var listDate = [];
-      var date = new Date();
-      var month = date.getMonth() + 1;
+      let chart = echarts.getInstanceByDom(document.getElementById("r1"));
+      let option = chart.getOption();
+      // let listDate = option.xAxis[0].data;
+      let listDate = [];
+      let date = new Date();
+      let month = date.getMonth() + 1;
       for (let i = 5; i >= 0; i--) {
-        var day = date.getDate();
+        let day = date.getDate();
         day = day - i;
-        var time = month + "." + day;
+        let time = month + "." + day;
         listDate.push(time);
       }
       option.xAxis[0].data = listDate;

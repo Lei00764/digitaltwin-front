@@ -4,6 +4,7 @@
 
 <script>
 import { getData } from "@/api/electricityfee";
+import * as echarts from 'echarts';
 export default {
     mounted() {
         this.draw();
@@ -11,12 +12,12 @@ export default {
     },
     methods: {
         draw() {
-            var myChart = this.$echarts.init(document.getElementById('m3'));
+            let myChart = echarts.init(document.getElementById('m3'));
             window.addEventListener('resize', function () {
         myChart.resize();
       });
-            var txt = 22;
-            var option = {
+            let txt = 22;
+            let option = {
                 title: {
                     text: txt + '%',
                     x: 'center',
@@ -32,7 +33,7 @@ export default {
                 series: [{
                     name: 'Line 1',
                     type: 'pie',
-                    clockWise: true,
+                    clockwise : true,
                     radius: ['65%', '80%'],
                     itemStyle: {
                         normal: {
@@ -76,10 +77,10 @@ export default {
         getDataM3() {
             getData()
                 .then((data) => {
-                    var chart = this.$echarts.getInstanceByDom(document.getElementById("m3"));
-                    var option = chart.getOption();
+                    let chart = echarts.getInstanceByDom(document.getElementById("m3"));
+                    let option = chart.getOption();
                     console.log(data); // 处理获取到的数据
-                    var tempdata = data[0];
+                    let tempdata = data[0];
                     option.series[0].data[0].value = (parseFloat(tempdata.air3) * 100).toFixed(1);
                     option.series[0].data[1].value = (
                         100 -

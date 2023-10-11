@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import bottomDiv from "@/components/digitalTwin/bottomDiv.vue";
 //import { integrityStream } from "ssri";
 import * as THREE from "three";

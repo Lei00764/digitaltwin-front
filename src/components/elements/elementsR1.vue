@@ -9,12 +9,12 @@
       >
         <el-table-column prop="airStation" label="空压站" min-width="30%">
           <!-- 用插槽的方法来改变颜色! -->
-          <template slot-scope="scope">
+          <template #default="scope">
             <span :style="{ color: '#1953FC' }">{{ scope.row.airStation }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="time1" label="运行时间段1" min-width="40%">
-          <template slot-scope="scope">
+          <template #default="scope">
             <input
               type="number"
               min="0"
@@ -27,7 +27,7 @@
           </template>
         </el-table-column>
         <el-table-column prop="time2" label="运行时间段2" min-width="30%">
-          <template slot-scope="scope">
+          <template #default="scope">
             <input
               type="number"
               min="12"
@@ -156,35 +156,35 @@ export default {
 }
 
 /*最外层透明*/
-/deep/.el-table {
+.el-table {
   background-color: transparent !important;
   padding: 4px;
 }
 
-/deep/.el-table__expanded-cell {
+:deep(.el-table__expanded-cell) {
   background-color: transparent !important;
 }
 
 /* 去除最外层的下边框 */
-/deep/.el-table::before {
+.el-table:deep(::before) {
   height: 0px;
 }
 
 /* 表格内背景颜色 */
 /* 表头单元格 */
-/deep/.el-table th {
+.el-table:deep(th) {
   background-color: rgba(75, 121, 255, 0.1) !important;
   color: #000 !important;
 }
 
 /* 一行 */
-/deep/.el-table tr {
+.el-table :deep(tr) {
   background-color: transparent !important;
   width: 100%;
 }
 
 /* 一个单元格 */
-/deep/.el-table td {
+.el-table :deep(td) {
   background-color: transparent !important;
   font-weight: 10000;
 }

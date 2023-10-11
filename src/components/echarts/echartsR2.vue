@@ -70,16 +70,16 @@ export default {
 </script>
 
 <style scoped>
-.table-wrapper /deep/ .el-table,
-.el-table__expanded-cell {
+.table-wrapper .el-table,
+:deep(.el-table__expanded-cell) {
   background-color: transparent;
 }
 
-.table-wrapper /deep/ .el-table tr {
+.table-wrapper .el-table:deep(tr) {
   background-color: transparent !important;
 }
 
-.table-wrapper /deep/ .el-table--enable-row-transition .el-table__body td,
+.table-wrapper :deep(.el-table--enable-row-transition) .el-table__body td,
 .el-table .cell {
   background-color: transparent;
 }

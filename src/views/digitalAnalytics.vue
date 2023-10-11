@@ -7,42 +7,42 @@
     </div>
     <div class="content" id="boxl1">
       <div style="text-align: left">
-        <i class="el-icon-news titletext"></i>
+        <Notification class="titletext"/>
         <p class="titletext">用户负荷情况</p>
       </div>
       <EchartsL1 style="margin-left:2%; margin-top: -15%; position: absolute"></EchartsL1>
     </div>
     <div class="content" id="boxl2">
       <div style="text-align: left">
-        <i class="el-icon-news titletext"></i>
+        <Notification class="titletext"/>
         <p class="titletext">空压站使用情况</p>
       </div>
       <EchartsL2 style="margin-left:2%; margin-top: -10%; position: absolute"></EchartsL2>
     </div>
     <div class="content" id="boxl3">
       <div style="text-align: left">
-        <i class="el-icon-news titletext"></i>
+        <Notification class="titletext"/>
         <p class="titletext">近日耗电量</p>
       </div>
       <EchartsL3 style="margin-top: -10%; position: absolute;"></EchartsL3>
     </div>
     <div class="content" id="boxr1">
       <div style="text-align: left">
-        <i class="el-icon-news titletext"></i>
+        <Notification class="titletext"/>
         <p class="titletext">系统电费分析</p>
       </div>
       <EchartsR1 style="margin-top: -10%; margin-left:4%; position: absolute"></EchartsR1>
     </div>
     <div class="content" id="boxr2">
       <div style="text-align: left">
-        <i class="el-icon-news titletext"></i>
+        <Notification class="titletext"/>
         <p class="titletext">空压系统整体分析</p>
       </div>
       <EchartsR2 style="margin-top: -4%; margin-left:4%; position: absolute"></EchartsR2>
     </div>
     <div class="content" id="boxr3">
       <div style="text-align: left">
-        <i class="el-icon-news titletext"></i>
+        <Notification class="titletext"/>
         <p class="titletext">各空压机耗电量</p>
       </div>
       <EchartsR3 style="margin-top: -5%; position: absolute"></EchartsR3>
@@ -50,7 +50,7 @@
     <div class="content" id="center">
       <div class="flex-div">
         <div style="text-align: left">
-          <i class="el-icon-news titletext"></i>
+          <Notification class="titletext"/>
           <p class="titletext">今日电费</p>
         </div>
         <div style="text-align: center">
@@ -75,7 +75,7 @@
       </div>
       <div style="justify-content: space-between">
         <div style="text-align: left; margin-top: -5%">
-          <i class="el-icon-news titletext"></i>
+          <Notification class="titletext"/>
           <p class="titletext">优化前后耗电量</p>
         </div>
         <div>
@@ -99,8 +99,10 @@ import EchartsM2 from "@/components/echarts/echartsM2.vue";
 import EchartsM3 from "@/components/echarts/echartsM3.vue";
 import EchartsM4 from "@/components/echarts/echartsM4.vue";
 import EchartsM5 from "@/components/echarts/echartsM5.vue";
+import {Notification} from "@element-plus/icons-vue";
 export default {
   components: {
+      Notification,
     EchartsL1,
     EchartsL2,
     EchartsL3,
@@ -120,11 +122,11 @@ export default {
     doClick(event) {
       // 点击事件后，需要显示一下图表
       this.showModel = true;
-      var e = event || window.event;
-      var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
-      var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
-      var x = e.pageX || e.clientX + scrollX;
-      var y = e.pageY || e.clientY + scrollY;
+      let e = event || window.event;
+      let scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+      let scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+      let x = e.pageX || e.clientX + scrollX;
+      let y = e.pageY || e.clientY + scrollY;
       // 获得一下当前点击位置的坐标
       this.pointX = x;
       this.pointY = y;
@@ -133,7 +135,7 @@ export default {
     getDataM() {
       getData()
         .then((data) => {
-          var tempdata = data[0];
+          let tempdata = data[0];
           this.todayvalue = (parseFloat(tempdata.feetoday)).toFixed(2);
         })
         .catch((error) => {
@@ -238,6 +240,11 @@ export default {
 .titletext {
   display: inline-block;
   margin-left: 5%;
+}
+
+svg.titletext{
+    height: 1.125em;
+    vertical-align: sub;
 }
 
 .flex-div {

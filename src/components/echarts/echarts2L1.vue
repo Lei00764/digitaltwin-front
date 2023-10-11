@@ -4,6 +4,7 @@
 
 <script>
 import { getOnandoffs,getnewOnandoffs } from "@/api/onandoff";
+import * as echarts from 'echarts';
 export default {
   mounted() {
     this.draw();
@@ -12,12 +13,12 @@ export default {
   methods: {
     draw() {
       // 基于准备好的dom，初始化echarts实例
-      var myChart = this.$echarts.init(document.getElementById("2l1"));
+      let myChart = echarts.init(document.getElementById("2l1"));
       window.addEventListener('resize', function () {
         myChart.resize();
       });
 
-      var option = {
+      let option = {
         tooltip: {
           trigger: "axis",
         },
@@ -220,9 +221,9 @@ export default {
       getOnandoffs()
         .then((data) => {
           console.log(data);
-          var chart = this.$echarts.getInstanceByDom(document.getElementById("2l1"));
-          var option = chart.getOption();
-          var listData = option.series[0].data;
+          let chart = echarts.getInstanceByDom(document.getElementById("2l1"));
+          let option = chart.getOption();
+          let listData = option.series[0].data;
           console.log(listData); // 处理获取到的数据
           for (let i = 0; i < data.length; i++) {
             // console.log(data[i].air1);
@@ -242,8 +243,8 @@ export default {
       getnewOnandoffs()
         .then((data) => {
           console.log(data);
-          var chart = this.$echarts.getInstanceByDom(document.getElementById("2l1"));
-          var option = chart.getOption();
+          let chart = echarts.getInstanceByDom(document.getElementById("2l1"));
+          let option = chart.getOption();
           for (let i = 0; i < data.length; i++) {
             // console.log(data[i].air1);
             // console.log(data[i].air2);

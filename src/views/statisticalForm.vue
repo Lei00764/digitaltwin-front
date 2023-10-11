@@ -6,7 +6,7 @@
       <el-button
         style="margin-left: 1%"
         type="primary"
-        icon="search"
+        :icon="Search"
         @click="imtScreen2()"
         >筛选</el-button
       >
@@ -22,11 +22,11 @@
         </el-date-picker>
       </div>
 
-      <el-button type="primary" icon="search" @click="imtScreen()">筛选</el-button>
-      <el-button type="primary" icon="search" @click="backdown()">复原</el-button>
+      <el-button type="primary" :icon="Search" @click="imtScreen()">筛选</el-button>
+      <el-button type="primary" :icon="RefreshRight" @click="backdown()">复原</el-button>
       <el-button
         type="primary"
-        icon="el-icon-download"
+        :icon="Download"
         style="margin-left: 1%"
         @click="exportData"
         >导出数据</el-button
@@ -67,7 +67,20 @@
   </div>
 </template>
 <script>
+import {Download, RefreshRight, Search} from "@element-plus/icons-vue";
+
 export default {
+    computed: {
+        Download() {
+            return Download
+        },
+        RefreshRight() {
+            return RefreshRight
+        },
+        Search() {
+            return Search
+        }
+    },
   data() {
     return {
       date: "",

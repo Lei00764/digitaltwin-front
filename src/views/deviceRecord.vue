@@ -3,14 +3,14 @@
         <div style="display: flex; justify-content: space-between; margin-top: 4%;">
             <div>
                 <el-card class="box-card" >
-                    <div slot="header" class="clearfix">
+                    <template #header>
                         <span style="font-family:Arial, Helvetica, sans-serif">空压机高压电表区</span>
-                    </div>
+                    </template>
                     <div>
                         <div v-for="o in 3" :key="o" class="text item">
                             <el-card>
-                                <div v-for="j in 3" :key="j">
-                                    <el-col :span="8">
+                                <el-row>
+                                    <el-col :span="8" v-for="j in 3" :key="j">
                                         <el-card shadow="hover"  class="inner-box1">
                                             <span style="font-style:oblique;">{{o*3-3+j}}#空压机</span>
                                             <span>
@@ -19,20 +19,20 @@
                                             </span>
                                         </el-card>
                                     </el-col>
-                                </div>
+                                </el-row>
                             </el-card>
                         </div>
                     </div>
                 </el-card>
                 <el-card class="box-card" >
-                    <div slot="header" class="clearfix">
+                    <template #header>
                         <span style="font-family:Arial, Helvetica, sans-serif">空压机流量计区</span>
-                    </div>
+                    </template>
                     <div>
                         <div v-for="o in 3" :key="o" class="text item">
                             <el-card>
-                                <div v-for="j in 3" :key="j">
-                                    <el-col :span="8">
+                                <el-row>
+                                    <el-col :span="8" v-for="j in 3" :key="j">
                                         <el-card shadow="hover"  class="inner-box2">
                                             <span style="font-style:oblique;">{{o*3-3+j}}#空压机</span>
                                             <span>
@@ -41,7 +41,7 @@
                                             </span>
                                         </el-card>
                                     </el-col>
-                                </div>
+                                </el-row>
                             </el-card>
                         </div>
                     </div>
@@ -49,13 +49,13 @@
             </div>
             <div>
                 <el-card class="box-card" shadow="hover">
-                    <div slot="header" class="clearfix">
+                    <template #header>
                         <span>空压机低压电表区</span>
-                    </div>
+                    </template>
                     <div v-for="o in 6" :key="o" class="text item">
                             <el-card>
-                                <div v-for="j in 3" :key="j">
-                                    <el-col :span="8">
+                                <el-row >
+                                    <el-col :span="8" v-for="j in 3" :key="j">
                                         <el-card shadow="hover"  class="inner-box3">
                                             <span style="font-style:oblique;">{{o*3-3+j}}#空压机</span>
                                             <span>
@@ -64,7 +64,7 @@
                                             </span>
                                         </el-card>
                                     </el-col>
-                                </div>
+                                </el-row>
                             </el-card>
                         </div>
                 </el-card>
@@ -72,13 +72,13 @@
             <div>
                 <div>
                     <el-card class="box-card" shadow="hover">
-                        <div slot="header" class="clearfix">
+                        <template #header>
                             <span>气配间流量计区</span>
-                        </div>
+                        </template>
                         <div v-for="o in 4" :key="o" class="text item">
                             <el-card>
-                                <div v-for="j in 3" :key="j">
-                                    <el-col :span="8">
+                                <el-row>
+                                    <el-col :span="8" v-for="j in 3" :key="j">
                                         <el-card shadow="hover"  class="inner-box4">
                                             <span style="font-style:oblique;">{{o*3-3+j}}#码头</span>
                                             <span>
@@ -87,20 +87,20 @@
                                             </span>
                                         </el-card>
                                     </el-col>
-                                </div>
+                                </el-row>
                             </el-card>
                         </div>
                 </el-card>
                 </div>
                 <div>
                     <el-card class="box-card" shadow="hover">
-                        <div slot="header" class="clearfix">
+                        <template #header>
                             <span>水表区</span>
-                        </div>
+                        </template>
                         <div v-for="o in 2" :key="o" class="text item">
                             <el-card>
-                                <div v-for="j in 3" :key="j">
-                                    <el-col :span="8">
+                                <el-row>
+                                    <el-col :span="8" v-for="j in 3" :key="j">
                                         <el-card shadow="hover"  class="inner-box5">
                                             <span style="font-style:oblique;">{{o*3-3+j}}#水表</span>
                                             <span>
@@ -108,7 +108,7 @@
                                             </span>
                                         </el-card>
                                     </el-col>
-                                </div>
+                                </el-row>
                             </el-card>
                         </div>
                     </el-card>

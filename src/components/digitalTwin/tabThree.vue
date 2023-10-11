@@ -10,7 +10,7 @@ import { getNowElectricity } from "@/api/c++_right";
 export default {
   methods: {
    getNowElectricity() {
-      var that=this
+      let that=this
       getNowElectricity()
         .then((data) => {
           console.log(data); // 处理获取到的数据

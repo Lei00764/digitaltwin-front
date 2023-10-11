@@ -6,27 +6,27 @@
                     <el-menu v-model="activeIndex1" class="el-menu-vertical-demo" @select="handleSelect1"
                         style="height: 700px">
                         <el-menu-item index="1">
-                            <i class="el-icon-menu"></i>
+                            <el-icon><Menu /></el-icon>
                             <span slot="title">4#空压站流量计&电表1</span>
                         </el-menu-item>
                         <el-menu-item index="2">
-                            <i class="el-icon-menu"></i>
+                            <el-icon><Menu /></el-icon>
                             <span slot="title">4#空压站流量计&电表2</span>
                         </el-menu-item>
                         <el-menu-item index="3">
-                            <i class="el-icon-menu"></i>
+                            <el-icon><Menu /></el-icon>
                             <span slot="title">4#空压站流量计&电表3</span>
                         </el-menu-item>
                         <el-menu-item index="4">
-                            <i class="el-icon-menu"></i>
+                            <el-icon><Menu /></el-icon>
                             <span slot="title">4#空压站薄板中心</span>
                         </el-menu-item>
                         <el-menu-item index="5">
-                            <i class="el-icon-menu"></i>
+                            <el-icon><Menu /></el-icon>
                             <span slot="title">4#空压站8、9平台</span>
                         </el-menu-item>
                         <el-menu-item index="6">
-                            <i class="el-icon-menu"></i>
+                            <el-icon><Menu /></el-icon>
                             <span slot="title">4#空压站</span>
                         </el-menu-item>
                     </el-menu>
@@ -62,6 +62,7 @@ import Echarts5B from "@/components/echarts/echarts5B.vue";
 import Echarts5C from "@/components/echarts/echarts5C.vue";
 import Echarts5D from "@/components/echarts/echarts5D.vue";
 import Echarts5E from "@/components/echarts/echarts5E.vue";
+import {Menu} from "@element-plus/icons-vue";
 
 export default {
     data() {
@@ -84,6 +85,7 @@ export default {
         Echarts5C,
         Echarts5D,
         Echarts5E,
+        Menu
     },
 };
 </script>

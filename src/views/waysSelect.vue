@@ -2,34 +2,34 @@
   <div class="about">
     <div class="content" id="box2l1">
       <div style="text-align: left">
-        <i class="el-icon-news titletext"></i>
+        <Notification class="titletext"/>
         <p class="titletext">优化后开关站时间</p>
       </div>
       <EchartsL1></EchartsL1>
     </div>
     <div class="content" id="box2l2">
       <div style="text-align: left">
-        <i class="el-icon-news titletext"></i>
+        <Notification class="titletext"/>
         <p class="titletext">优化前后耗电量</p>
       </div>
       <EchartsL2></EchartsL2>
     </div>
     <div class="content" id="box2r1">
       <div style="text-align: left">
-        <i class="el-icon-news titletext"></i>
+        <Notification class="titletext"/>
         <p class="titletext">设置空压站开关时间</p>
         <el-tooltip class="item" content="时间段1应在0-12之间，时间段2应在12-24之间" placement="top">
-          <i style="margin-left: 20px" class="el-icon-question"></i>
+          <QuestionFilled style="margin-left: 20px" class="titletext"/>
         </el-tooltip>
       </div>
-      <ElementR1 :R1Data="pR1Data" @R1DataChanged="updateR1ParentData"></ElementR1>
+      <ElementsR1 :R1Data="pR1Data" @R1DataChanged="updateR1ParentData"></ElementsR1>
     </div>
     <div class="content" id="box2r2">
       <div style="text-align: left">
-        <i class="el-icon-news titletext"></i>
+        <Notification class="titletext"/>
         <p class="titletext">设置补气压力</p>
       </div>
-      <ElementR2 :R2Data="pR2Data" @R2DataChanged="updateR2ParentData" @click="updateBestData"></ElementR2>
+      <ElementsR2 :R2Data="pR2Data" @R2DataChanged="updateR2ParentData"></ElementsR2>
       <div class="threeButton">
         <el-button type="primary" style="width: 30%" @click="getdata">一键应用优化效果</el-button>
         <el-button type="primary" style="width: 30%" @click="updatedata">应用</el-button>
@@ -43,14 +43,17 @@
 import { upgradeData } from "@/api/runstrategy";
 import EchartsL1 from "@/components/echarts/echarts2L1.vue";
 import EchartsL2 from "@/components/echarts/echarts2L2.vue";
-import ElementR1 from "@/components/elements/elementsR1";
-import ElementR2 from "@/components/elements/elementsR2";
+import ElementsR1 from "@/components/elements/elementsR1.vue";
+import ElementsR2 from "@/components/elements/elementsR2.vue";
+import {Notification, QuestionFilled} from "@element-plus/icons-vue";
 export default {
   components: {
+      QuestionFilled,
+      Notification,
     EchartsL1,
     EchartsL2,
-    ElementR1,
-    ElementR2,
+    ElementsR1,
+      ElementsR2,
   },
   data() {
     return {
@@ -219,6 +222,11 @@ export default {
 .titletext {
   display: inline-block;
   margin-left: 5%;
+
+}
+svg.titletext{
+    height: 1.125em;
+    vertical-align: sub;
 }
 
 .threeButton {

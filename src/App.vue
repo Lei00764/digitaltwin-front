@@ -1,52 +1,37 @@
 <template>
-  <div id="app">
     <navTop class="nav"></navTop>
     <div class="background">
-      <img :src="imgSrc" width="100%" height="100%" alt=""/>
+      <img :src="imgSrc" alt=""/>
     </div>
     <router-view class="content2" />
-  </div>
 </template>
 
 <script>
-import navTop from "@/components/common/navTop";
+import navTop from "@/components/common/navTop.vue";
 export default {
   components: {
     navTop,
   },
   data() {
     return {
-      imgSrc: require("@/assets/background.jpg"),
+      imgSrc: "/webstatic/background.jpg",
     };
   },
 };
 </script>
 
 <style scoped>
-html, body {
-  height: 100%; /* 设置 html 和 body 的高度为 100% */
-  margin: 0; /* 取消默认的外边距 */
-}
-
-#app {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  height: 100%;
-  width: 100%;
-}
 .background {
   width: 100%;
   height: 98%;
   z-index: -1;
   position: absolute;
 }
+.background img {
+    width: 100%;
+    height: 100%;
+}
+
 .content2 {
   position: absolute;
   top: 10%;

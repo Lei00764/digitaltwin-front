@@ -86,16 +86,16 @@ export default {
 </script>
 
 <style scoped>
-.table-wrapper /deep/ .el-table,
+.table-wrapper .el-table,
 .el-table__expanded-cell {
   background-color: rgba(135, 206, 235, 0.5);
 }
 
-.table-wrapper /deep/ .el-table tr {
+.table-wrapper .el-table:deep(tr) {
   background-color: rgba(135, 206, 235, 0.5) !important;
 }
 
-.table-wrapper /deep/ .el-table--enable-row-transition .el-table__body td,
+.table-wrapper :deep(.el-table--enable-row-transition) .el-table__body td,
 .el-table .cell {
   background-color: rgba(135, 206, 235, 0.5);
 }
